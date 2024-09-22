@@ -78,6 +78,93 @@ The API will be available at http://localhost:3000
 - Detail Order: GET /api/orders/:id
 - Delete Order: DELETE /api/orders/:id
 
+### Create Product
+
+- **URL:** `/api/products`
+- **Method:** `POST`
+- **Request Body:**
+
+   ```json
+   {
+      "name": "Laptop X",
+      "price": 12000000,
+      "stock": 15
+    }
+   ```
+
+- **Response:**
+
+   ```json
+   {
+        "message": "Product created successfully",
+        "data": {
+            "id": 1,
+            "name": "Laptop X",
+            "price": 12000000,
+            "stock": 15,
+            "sold": 0,
+            "created_at": "2024-09-19T06:29:31.000000Z",
+            "updated_at": "2024-09-19T06:29:31.000000Z"
+        }
+    }
+   ```
+
+### Create Order
+
+- **URL:** `/api/orders`
+- **Method:** `POST`
+- **Request Body:**
+
+   ```json
+   {
+     "products": [
+       {
+         "id": 2,
+         "quantity": 1
+       },
+       {
+         "id": 3,
+         "quantity": 5
+       }
+     ]
+   }
+   ```
+
+- **Response:**
+
+   ```json
+   {
+     "message": "Order created successfully",
+     "data": {
+       "id": 1,
+       "products": [
+         {
+           "id": 2,
+           "name": "Smartphone",
+           "price": 7000000,
+           "quantity": 1,
+           "stock": 49,
+           "sold": 1,
+           "created_at": "2024-09-20T03:14:49.000000Z",
+           "updated_at": "2024-09-20T03:14:49.000000Z"
+         },
+         {
+           "id": 3,
+           "name": "Headset",
+           "price": 350000,
+           "quantity": 5,
+           "stock": 45,
+           "sold": 5,
+           "created_at": "2024-09-20T03:14:49.000000Z",
+           "updated_at": "2024-09-20T03:14:49.000000Z"
+         }
+       ],
+       "created_at": "2024-09-20T03:14:49.000000Z",
+       "updated_at": "2024-09-20T03:14:49.000000Z"
+     }
+   }
+   ```
+
 ## Usage
 
 ### Running the API in Development
