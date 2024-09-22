@@ -1,0 +1,31 @@
+
+CREATE TABLE Orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price INT NOT NULL,
+  stock INT NOT NULL,
+  sold INT DEFAULT 0,
+  createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE OrderProducts (
+  orderId INT NOT NULL,
+  productId INT NOT NULL,
+  quantity INT NOT NULL,
+  PRIMARY KEY (orderId, productId),
+  FOREIGN KEY (orderId) REFERENCES Orders(id) ON DELETE CASCADE,
+  FOREIGN KEY (productId) REFERENCES Products(id)
+);
+
+-- Insert sample data into the Products table (optional)
+INSERT INTO Products (name, price, stock) VALUES 
+('Product A', 10000, 50),
+('Product B', 15000, 30),
+('Product C', 20000, 20);
