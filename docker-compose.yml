@@ -4,8 +4,8 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: api_test
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE: api_test_new
       MYSQL_USER: root
       MYSQL_PASSWORD:
     ports:
@@ -19,8 +19,8 @@ services:
       - "3000:3000"
     environment:
       DB_HOST: localhost
-      DB_NAME: api_test
-      DB_USER: user
+      DB_USER: root
       DB_PASSWORD:
+      DB_NAME: api_test_new
     depends_on:
       - db

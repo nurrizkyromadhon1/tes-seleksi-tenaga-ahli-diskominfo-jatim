@@ -1,5 +1,5 @@
 
-# Node.js API with Sequelize (Order & Product Management)
+# Seleksi Tenaga Ahli Diskominfo Jatim by Nur Rizky Romadhon
 
 ## Project Overview
 
@@ -23,8 +23,8 @@ This project is a Node.js API built with Express.js and Sequelize for managing *
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/yourproject.git
-   cd yourproject
+   git clone https://github.com/nurrizkyromadhon1/tes-seleksi-tenaga-ahli-diskominfo-jatim.git
+   cd tes-seleksi-tenaga-ahli-diskominfo-jatim
    ```
 
 2. **Install dependencies:**
@@ -40,8 +40,8 @@ This project is a Node.js API built with Express.js and Sequelize for managing *
    ```
    DB_HOST=localhost
    DB_USER=root
-   DB_PASSWORD=password
-   DB_NAME=your_database
+   DB_PASSWORD=
+   DB_NAME=api_test_new
    DB_PORT=3306
    ```
 
@@ -51,7 +51,7 @@ This project is a Node.js API built with Express.js and Sequelize for managing *
 
    Option 1: Manually run the SQL schema:
 
-   - Download the database schema file [here](./database_schema.sql) and run it in your MySQL database.
+   - Download the database schema file [here](./db/api_test_new.sql) and run it in your MySQL database.
    
    Option 2: Let Sequelize sync the models automatically:
 
@@ -61,93 +61,22 @@ This project is a Node.js API built with Express.js and Sequelize for managing *
 
 ## API Endpoints
 
-### Create Order
+The API will be available at http://localhost:3000
 
-- **URL:** `/api/orders`
-- **Method:** `POST`
-- **Request Body:**
+### Products
 
-   ```json
-   {
-     "products": [
-       {
-         "id": 2,
-         "quantity": 1
-       },
-       {
-         "id": 3,
-         "quantity": 5
-       }
-     ]
-   }
-   ```
+- List Products: GET /api/products
+- Create Product: POST /api/products
+- Detail Product: GET /api/products/:id
+- Update Product: PUT /api/products/:id
+- Delete Product: DELETE /api/products/:id
 
-- **Response:**
+### Orders
 
-   ```json
-   {
-     "message": "Order created successfully",
-     "data": {
-       "id": 1,
-       "products": [
-         {
-           "id": 2,
-           "name": "Smartphone",
-           "price": 7000000,
-           "quantity": 1,
-           "stock": 49,
-           "sold": 1,
-           "created_at": "2024-09-20T03:14:49.000000Z",
-           "updated_at": "2024-09-20T03:14:49.000000Z"
-         },
-         {
-           "id": 3,
-           "name": "Headset",
-           "price": 350000,
-           "quantity": 5,
-           "stock": 45,
-           "sold": 5,
-           "created_at": "2024-09-20T03:14:49.000000Z",
-           "updated_at": "2024-09-20T03:14:49.000000Z"
-         }
-       ],
-       "created_at": "2024-09-20T03:14:49.000000Z",
-       "updated_at": "2024-09-20T03:14:49.000000Z"
-     }
-   }
-   ```
-
-### Retrieve Orders
-
-- **URL:** `/api/orders`
-- **Method:** `GET`
-
-- **Response:**
-
-   ```json
-   {
-     "message": "Order List",
-     "data": [
-       {
-         "id": 1,
-         "products": [
-           {
-             "id": 2,
-             "name": "Smartphone",
-             "price": 7000000,
-             "quantity": 1,
-             "stock": 49,
-             "sold": 1,
-             "created_at": "2024-09-20T03:14:49.000000Z",
-             "updated_at": "2024-09-20T03:14:49.000000Z"
-           }
-         ],
-         "created_at": "2024-09-20T03:14:49.000000Z",
-         "updated_at": "2024-09-20T03:14:49.000000Z"
-       }
-     ]
-   }
-   ```
+- List Orders: GET /api/orders
+- Create Order: POST /api/orders
+- Detail Order: GET /api/orders/:id
+- Delete Order: DELETE /api/orders/:id
 
 ## Usage
 
@@ -156,11 +85,14 @@ This project is a Node.js API built with Express.js and Sequelize for managing *
 1. **Start the server:**
 
    ```bash
-   npm start
+   npm run dev
    ```
 
 2. **Open your browser or use Postman to access the API:**
 
+   ```
+   http://localhost:3000/api/products
+   ```
    ```
    http://localhost:3000/api/orders
    ```
@@ -194,9 +126,8 @@ This project includes a `Dockerfile` for containerized deployment. Follow the st
 3. **Access the API at:**
 
    ```
+   http://localhost:3000/api/products
+   ```
+   ```
    http://localhost:3000/api/orders
    ```
-
-## License
-
-This project is licensed under the MIT License.
