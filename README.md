@@ -59,6 +59,33 @@ This project is a Node.js API built with Express.js and Sequelize for managing *
    npm run db:sync
    ```
 
+## Usage
+
+### Running the API in Development
+
+1. **Start the server:**
+
+   ```bash
+   npm run dev
+   ```
+
+2. **Open your browser or use Postman to access the API:**
+
+   ```
+   http://localhost:3000/api/products
+   ```
+   ```
+   http://localhost:3000/api/orders
+   ```
+
+### Sync Database
+
+To automatically create the tables and relations in the database:
+
+```bash
+npm run db:sync
+```
+
 ## API Endpoints
 
 The API will be available at http://localhost:3000
@@ -164,33 +191,6 @@ The API will be available at http://localhost:3000
      }
    }
    ```
-
-## Usage
-
-### Running the API in Development
-
-1. **Start the server:**
-
-   ```bash
-   npm run dev
-   ```
-
-2. **Open your browser or use Postman to access the API:**
-
-   ```
-   http://localhost:3000/api/products
-   ```
-   ```
-   http://localhost:3000/api/orders
-   ```
-
-### Sync Database
-
-To automatically create the tables and relations in the database:
-
-```bash
-npm run db:sync
-```
 
 ## Deployment with Docker
 
